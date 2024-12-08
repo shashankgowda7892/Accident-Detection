@@ -17,6 +17,8 @@ const Admin = () => {
             "Content-Type": "application/json",
           },
         });
+        console.log(response.data);
+        
         setCameras(response.data); // Store cameras in state
         console.log(response.data); // For debugging or additional data returned from the backend
         
