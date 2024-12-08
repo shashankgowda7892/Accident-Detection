@@ -12,7 +12,11 @@ const Admin = () => {
   useEffect(() => {
     const fetchCameras = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/api/admin/cameras`);
+        const response = await axios.get(`${apiUrl}/api/admin/cameras`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
         setCameras(response.data); // Store cameras in state
         console.log(response.data); // For debugging or additional data returned from the backend
         
