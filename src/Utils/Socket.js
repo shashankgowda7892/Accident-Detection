@@ -2,7 +2,9 @@ import { io } from 'socket.io-client';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 // Replace with your backend URL or use 'localhost' if running locally
-const socket = io(`${apiUrl}`); // URL should match your backend server
+const socket = io(`${apiUrl}`,{
+  transports: ['websocket'], // Force WebSocket
+}); // URL should match your backend server
 
 socket.on('connect', () => {
   console.log('Connected to the server with socket ID:', socket.id);
